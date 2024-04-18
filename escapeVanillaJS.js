@@ -20,16 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 🪲 Bug: Asynchronous function ?
-    document.getElementById("solveRoom3").addEventListener("click", () => {
-        fetch('directions.json')
-            .then(response => response.json())
-            .then(directions => {
-                navigateLabyrinth(directions)
-                    .then(message => {
-                        // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").textContent = message;
-                    });
-            });
+    document.getElementById("solveRoom3").addEventListener("click", async () => {
+        try {
+            const response = await fetch('directions.json');
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            const directions = await response.json();
+            const message = await navigateLabyrinth(directions);
+            // 🪲 Bug: Incorrect method
+            document.getElementById("room3Result").textContent = message;
+        } catch (err) {
+            console.error('Unable to fetch or process data:', error) // Displays a message to the user or takes appropriate action
+        };
+
     });
 });
 
