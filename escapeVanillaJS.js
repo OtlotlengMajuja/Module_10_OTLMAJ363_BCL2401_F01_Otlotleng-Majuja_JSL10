@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("solveRoom2").addEventListener("click", () => {
         // Added the missing 'async' keyword to the 'jsConcepts' set
         const jsConcepts = new Set(['closure', 'scope', 'hoisting', 'async']);
-        const reactConcepts = new Set(['components', 'jsx', 'hooks']);
+        const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // Corrected the function call for room 2
         const commonConcepts = findIntersection(jsConcepts, reactConcepts);
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
@@ -38,8 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function findMostRecentBook(books) {
     // Compare the dates and return the most recently published book
-    return books.reduce((mostRecent, book) => new Date(mostRecent.published) < new Date(book.published) ? book : mostRecent);
-}
+    return books.reduce((mostRecent, book) => {
+        const mostRecentDate = new Date(mostRecent.published);
+        const bookDate = new Date(book.published);
+        return mostRecentDate < bookDate ? book : mostRecent;
+    });
+};
+
+
 
 function findIntersection(setA, setB) {
     // Create a new set containing only the elements that are common both to 'setA' and 'setB'
