@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 navigateLabyrinth(directions)
                     .then(message => {
                         // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").innerHTML = message;
+                        document.getElementById("room3Result").textContent = message;
                     });
             });
     });
