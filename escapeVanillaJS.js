@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // 🪲 Bug: Incorrect method
             document.getElementById("room3Result").textContent = message;
         } catch (err) {
-            console.error('Unable to fetch or process data:', error) // Displays a message to the user or takes appropriate action
+            console.error('Unable to fetch or process data:', err) // Displays a message to the user or takes appropriate action
         };
 
     });
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
-    return books.reduce((mostRecent, book) => new Date(book.published) < new Date(mostRecent.published) ? book : mostRecent);
+    return books.reduce((mostRecent, book) => new Date(mostRecent.published) < new Date(book.published) ? book : mostRecent);
 }
 
 function findIntersection(setA, setB) {
