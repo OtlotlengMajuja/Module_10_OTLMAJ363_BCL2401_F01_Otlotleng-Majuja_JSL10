@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await fetch('directions.json');
             if (!response.ok) {
-                throw new Error('Failed to fetch data');
+                throw new Error('Unable to fetch data');
             }
             const directions = await response.json();
             const message = await navigateLabyrinth(directions);
