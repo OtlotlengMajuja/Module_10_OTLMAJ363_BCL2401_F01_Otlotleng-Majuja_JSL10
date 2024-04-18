@@ -1,25 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 🪲 Bug: Incorrect ID used for attaching the event listener
+    // Corrected the ID used in the event listener for room 1
     document.getElementById("solveRoom1").addEventListener("click", () => {
         fetch('books.json')
             .then(response => response.json())
             .then(books => {
                 const mostRecentBook = findMostRecentBook(books);
-                // 🪲 Bug: Incorrect element ID
+                // Corrected the element ID when displaying results for room 1
                 document.getElementById("room1Result").textContent = `The key to the next room is: ${mostRecentBook.title}`;
             });
     });
 
     document.getElementById("solveRoom2").addEventListener("click", () => {
+        // Added the missing 'async' keyword to the 'jsConcepts' set
         const jsConcepts = new Set(['closure', 'scope', 'hoisting', 'async']);
-        // 🪲 Bug: What's missing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks']);
-        // 🪲 Bug: Incorrect function call
+        // Corrected the function call for room 2
         const commonConcepts = findIntersection(jsConcepts, reactConcepts);
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
-    // 🪲 Bug: Asynchronous function ?
+    // Inserted asynchronous operations 'async/await' and 'try/catch' blocks
     document.getElementById("solveRoom3").addEventListener("click", async () => {
         try {
             const response = await fetch('directions.json');
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const directions = await response.json();
             const message = await navigateLabyrinth(directions);
-            // 🪲 Bug: Incorrect method
             document.getElementById("room3Result").textContent = message;
         } catch (err) {
             console.error('Unable to fetch or process data:', err) // Displays a message to the user or takes appropriate action
@@ -38,12 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function findMostRecentBook(books) {
-    // 🪲 Bug: Logic error
+    // Compare the dates and return the most recently published book
     return books.reduce((mostRecent, book) => new Date(mostRecent.published) < new Date(book.published) ? book : mostRecent);
 }
 
 function findIntersection(setA, setB) {
-    // 🪲 Bug: Incorrect logic
     // Create a new set containing only the elements that are common both to 'setA' and 'setB'
     const intersection = new Set([...setA].filter(item => setB.has(item)));
     return intersection;
@@ -51,7 +49,7 @@ function findIntersection(setA, setB) {
 
 async function navigateLabyrinth(directions) {
     for (let direction of directions) {
-        // 🪲 Bug: No delay
+        // Added the 'await' keyword to ensure the simulation of asynchronous operations works as intended
         await new Promise(resolve => setTimeout(resolve, 1000));
         console.log(`Navigating: ${direction.step}`);
     }
