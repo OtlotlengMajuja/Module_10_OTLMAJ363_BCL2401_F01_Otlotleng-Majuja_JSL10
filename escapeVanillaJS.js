@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // 🪲 Bug: Incorrect ID used for attaching the event listener
-    document.getElementById("solveRoom").addEventListener("click", () => {
-        fetch('books.json') 
+    document.getElementById("solveRoom1").addEventListener("click", () => {
+        fetch('books.json')
             .then(response => response.json())
             .then(books => {
                 const mostRecentBook = findMostRecentBook(books);
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🪲 Bug: Asynchronous function ?
     document.getElementById("solveRoom3").addEventListener("click", () => {
-        fetch('directions.json') 
+        fetch('directions.json')
             .then(response => response.json())
             .then(directions => {
                 navigateLabyrinth(directions)
