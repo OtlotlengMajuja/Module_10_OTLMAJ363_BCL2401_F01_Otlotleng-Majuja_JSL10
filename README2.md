@@ -16,5 +16,6 @@ The elements in this project were error handling('try/catch'), event listeners, 
 **Data Processing:** I think being able to carry out data manipulation tasks including locating the most recent book, identifying similar items in sets, and asynchronously processing navigation instructions shows my growth in my abilities as a developer.
 
 # Challenges Faced
+One of the challenges I faced and I think has continued to be a recurring thought is being decisive in terms of how I choose to identify and resolve the bugs. I am well aware that there are many ways to achieve a goal, I just think that the availability of so many methods confuse me sometimes.
 
 # Overall Learning Experience
