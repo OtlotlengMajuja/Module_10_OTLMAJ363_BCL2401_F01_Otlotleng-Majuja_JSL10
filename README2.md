@@ -19,3 +19,4 @@ The elements in this project were error handling('try/catch'), event listeners, 
 One of the challenges I faced and I think has continued to be a recurring thought is being decisive in terms of how I choose to identify and resolve the bugs. I am well aware that there are many ways to achieve a goal, I just think that the availability of so many methods confuse me sometimes.
 
 # Overall Learning Experience
+This project really stretched my mind in terms of experimenting with debugging and attempting to figure out my coding style having been tasked with debugging asynchronous code, handling errors, and improving code robustness. I was also able to add fetching APIs, Set operations and 'async/await' to my skill set.
